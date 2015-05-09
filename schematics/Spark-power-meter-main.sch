@@ -14618,8 +14618,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R3" library="resistor" deviceset="R-EU_" device="0207/10" value="22K"/>
 <part name="R4" library="resistor" deviceset="R-EU_" device="0207/10" value="47K"/>
 <part name="R5" library="resistor" deviceset="R-EU_" device="0207/10" value="47K"/>
-<part name="R6" library="resistor" deviceset="R-EU_" device="0207/10" value="1K"/>
-<part name="R7" library="resistor" deviceset="R-EU_" device="0207/10" value="10K"/>
+<part name="R6" library="resistor" deviceset="R-EU_" device="0207/10" value="220R"/>
+<part name="R7" library="resistor" deviceset="R-EU_" device="0207/10" value="1K"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
@@ -14631,6 +14631,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP1" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP2" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP3" library="testpad" deviceset="TP" device="B1,27"/>
+<part name="TP4" library="testpad" deviceset="TP" device="B1,27"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="075-032X103" value="470p"/>
 </parts>
 <sheets>
 <sheet>
@@ -14680,6 +14682,8 @@ Spark Core module</text>
 <instance part="TP1" gate="G$1" x="48.26" y="106.68"/>
 <instance part="TP2" gate="G$1" x="127" y="106.68"/>
 <instance part="TP3" gate="G$1" x="7.62" y="-7.62"/>
+<instance part="TP4" gate="G$1" x="53.34" y="7.62" rot="R90"/>
+<instance part="C5" gate="G$1" x="45.72" y="-5.08"/>
 </instances>
 <busses>
 </busses>
@@ -14738,10 +14742,14 @@ Spark Core module</text>
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="GND@2"/>
-<wire x1="58.42" y1="12.7" x2="30.48" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="12.7" x2="45.72" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="45.72" y1="12.7" x2="30.48" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="17.78" x2="30.48" y2="12.7" width="0.1524" layer="91"/>
 <junction x="30.48" y="12.7"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="45.72" y1="-2.54" x2="45.72" y2="12.7" width="0.1524" layer="91"/>
+<junction x="45.72" y="12.7"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -14871,6 +14879,9 @@ Spark Core module</text>
 <wire x1="45.72" y1="-17.78" x2="45.72" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="A0"/>
 <wire x1="45.72" y1="-38.1" x2="58.42" y2="-38.1" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="-10.16" x2="45.72" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="45.72" y="-17.78"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -14883,6 +14894,13 @@ Spark Core module</text>
 <wire x1="15.24" y1="-55.88" x2="33.02" y2="-55.88" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-17.78" x2="33.02" y2="-55.88" width="0.1524" layer="91"/>
 <junction x="33.02" y="-17.78"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="TP4" gate="G$1" pin="TP"/>
+<pinref part="U$1" gate="G$1" pin="TX"/>
+<wire x1="55.88" y1="7.62" x2="58.42" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
