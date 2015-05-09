@@ -55,7 +55,7 @@ struct FComplex
 
 static uint16_t vmin,vmax;
 
-bool processData(volatile uint16_t *raw, int count, int zerosample, FComplex *res)
+bool processData(volatile uint16_t *raw, int count, int zerosample, struct FComplex *res)
 {
     // 'zerosample' is sample at which AC voltage is a positive maximum
     // Should be in the middle of the sync pulse. 
