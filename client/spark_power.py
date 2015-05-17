@@ -125,7 +125,12 @@ def toStr(val, fmt="%.1f"):
     else:
         return fmt % val
 
-
+def getCSV( valList ):
+    now = time.localtime()
+    timedate = [ time.strftime("%d/%m/%y", now), time.strftime("%H:%M:%S",now) ]
+    valStrs = [ toStr(v) for v in valList ]
+    return ",".join( timedate + valStrs )
+    
 if __name__ == '__main__':
     from optparse import OptionParser
     parser = OptionParser("usage: %prog [options] device_name [variableName ...]")
@@ -150,7 +155,7 @@ if __name__ == '__main__':
         vals = sparkGetVars(dev, access_token, vars)
 
         if opts.csv:
-            print ",".join([ toStr(vals[v]) for v in vars ])
+            print getCSV([ vals[v] for v in vars ])
             sys.stdout.flush()
         else:
             for v in vars:
