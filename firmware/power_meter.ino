@@ -1,6 +1,10 @@
 #include <math.h>
 #include "application.h"
 
+#ifndef ADC1_DR_ADDRESS
+#define ADC1_DR_ADDRESS   ((uint32_t)0x4001244C)
+#endif
+
 static const int SAMPLE_COUNT = 1024;
 
 static const float cal_Scale = 0.0121F;
