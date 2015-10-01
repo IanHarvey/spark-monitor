@@ -3,6 +3,8 @@
 Home power monitor using Spark Core
 ===================================
 
-These are support files for a forthcoming project on instructables.com
+These are supporting files for a home energy project using a Particle Core
+(formerly Spark Core) module. Build instructions and pictures are given at
 
-Please check back later for more information.
+http://www.instructables.com/id/Internet-connected-home-energy-monitor/
+
